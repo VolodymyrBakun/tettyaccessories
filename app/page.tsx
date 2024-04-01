@@ -1,4 +1,5 @@
 import { getProjects } from "@/sanity/sanity-utils";
+import Image from "next/image";
 
 export default async function Home() {
   const projects = await getProjects();
@@ -6,11 +7,27 @@ export default async function Home() {
 
 
   return <div>
-    <h1 className="text-5xl text-center font-bold font-serif">Tetty Accessories</h1>
+    <h1 className="text-5xl text-center font-bold font-serif mt-1">Tetty Accessories</h1>
     <p className="p-3 text-center">We offers handmade headbands, tiaras, wreaths, hair elastics and other accessories made in floral and fancy style.</p>
-    {projects.map((project) => (
-      <div key={project._id}>{project.name}</div>
-    ))}
+    <h2 className="mt-5 mb-3 ml-2 font-extrabold" >Listings</h2>
+
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ">
+      {projects.map((project) => (
+        <div key={project._id} className=" border border-solid border-cyan-500 rounded-md m-1 p-3">
+          {project.name}
+        
+          {project.image &&
+            (<Image
+            src={project.image}
+            alt={project.alt}
+            width={250}
+            height={100}
+            className="object-cover rounded-lg border border-gray-500"/>) }
+          
+        </div>
+      ))}
+    </div>
+    
   </div>
   ;
 }
