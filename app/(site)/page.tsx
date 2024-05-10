@@ -14,7 +14,7 @@ export default async function Home() {
 
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ">
       {projects.map((project) => (
-        <Link href={`/projects/${project.slug}`} key={project._id} className=" border border-solid border-cyan-500 rounded-md m-1 p-3 hover:scale-105 hover:border-blue-600 hover:border-2 transition">
+        <Link href={`/projects/${project.slug}`} key={project._id} className="text-center border border-solid border-cyan-500 rounded-md m-1 p-3 hover:scale-105 hover:border-blue-600 hover:border-2 transition">
           {project.name}
         
           {project.image &&
@@ -23,7 +23,7 @@ export default async function Home() {
             alt={project.alt}
             width={250}
             height={100}
-            className="object-cover rounded-lg border border-gray-500"/>) }
+            className="object-cover rounded-lg border border-gray-500 m-auto"/>) }
           
         </Link>
       ))}
