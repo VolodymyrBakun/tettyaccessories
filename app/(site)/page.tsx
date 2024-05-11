@@ -8,7 +8,7 @@ export default async function Home() {
 
 
   return <div>
-    <h1 className="text-5xl text-center font-bold font-serif mt-1">Tetty Accessories</h1>
+    <h1 className="text-5xl text-center font-bold font-serif ">Tetty Accessories</h1>
     <p className="p-3 text-center">We offers handmade headbands, tiaras, wreaths, hair elastics and other accessories made in floral and fancy style.</p>
     <h2 className="mt-5 mb-3 ml-2 font-extrabold" >Listings</h2>
 

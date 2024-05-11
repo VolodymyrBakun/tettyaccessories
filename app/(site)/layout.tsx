@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import "../globals.css";
 import Link from "next/link";
 import { getPages } from "@/sanity/sanity-utils";
+import Image from "next/image";
+import logo from "../../logo.webp"
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,19 +25,27 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body className="max-w-3xl mx-auto py-10">
+      <body className="container mx-auto p-10">
         <header className="flex items-center justify-between">
-          <Link href="/">Tetty</Link>
+          <Link href="/">
+            <Image src={logo} alt="logo" width={100} height={100} />
+          
+          </Link>
 
           <div className="flex items-center gap-3">
-            {pages.map((page) => (<Link key={page._id} href={`/${page.slug}`}>
-              {page.title}
-            </Link>))}
+            {pages.map((page) => (
+              <Link
+                key={page._id}
+                href={`/${page.slug}`}
+                className="hover:underline"
+              >
+                {page.title}
+              </Link>
+            ))}
           </div>
+        </header>
 
-</header>
-
-        <main className="py-20">{children}</main>
+        <main className="py-5">{children}</main>
       </body>
     </html>
   );
