@@ -59,3 +59,34 @@ export async function getPage(slug: string): Promise<Page> {
         { slug }
     );
 }
+
+export async function getWeddings(): Promise<Project[]> {
+  return createClient(clientConfig).fetch(
+    groq`*[_type == "wedding"]{
+        _id,
+        _createdAt,
+        name,
+        "slug": slug.current,
+        "image": image.asset->url,
+        url,
+        content,
+        alt
+    }`
+  );
+}
+
+export async function getWedding(slug: string): Promise<Project> {
+  return createClient(clientConfig).fetch(
+    groq`*[_type == "wedding" && slug.current == $slug][0]{
+        _id,
+        _createdAt,
+        name,
+        "slug": slug.current,
+        "image": image.asset->url,
+        url,
+        content,
+        alt
+    }`,
+    { slug }
+  );
+}

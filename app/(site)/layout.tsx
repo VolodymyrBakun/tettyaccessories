@@ -4,7 +4,7 @@ import "../globals.css";
 import Link from "next/link";
 import { getPages } from "@/sanity/sanity-utils";
 import Image from "next/image";
-import logo from "../../logo.webp"
+import logo from "../../public/logo.webp"
 
 const inter = Inter({ subsets: ["latin"] });
 
